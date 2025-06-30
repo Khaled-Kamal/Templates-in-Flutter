@@ -1,4 +1,4 @@
-أكيد! إليك وصفًا احترافيًا يمكنك استخدامه على GitHub لوضعه في وصف مستودع يحتوي على **قوالب (Templates) Flutter**:## 📱 Flutter UI Templates
+## 📱 Flutter UI Templates
 
 This repository contains a collection of reusable Flutter UI templates to help developers build beautiful and functional mobile applications faster.
 
@@ -40,4 +40,4 @@ Feel free to fork this repository, open issues, or submit pull requests with imp
 
 ---
 
-هل تحب أترجمه بالعربي؟ أو تحب أخصصه لنوع معين من القوالب زي "تطبيق متجر"، "تطبيق إدارة مهام"، إلخ؟
+ادعيلي دعوه
