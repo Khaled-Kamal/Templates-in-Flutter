@@ -19,7 +19,7 @@ class _OnboardingState extends State<Onboarding> {
     return  Scaffold(
       body:Column(
           children: [
-            // PageView
+            // PageViewww
             Expanded(
               child: PageView.builder(
                 controller: _controller,
