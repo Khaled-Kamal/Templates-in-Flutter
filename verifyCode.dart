@@ -12,7 +12,7 @@ class Verifypage extends StatefulWidget {
 
 class _VerifypageState extends State<Verifypage> {
   final TextEditingController otpController = TextEditingController();
-  Timer? _timer; // <-- هنا نخزن المؤقت عشان نقدر نلغيّه
+  Timer? _timer;
   int secondsRemaining = 30;
   bool enableResend = false;
 
