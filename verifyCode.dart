@@ -40,7 +40,7 @@ class _VerifypageState extends State<Verifypage> {
         setState(() {
           enableResend = true;
         });
-        _timer?.cancel(); // أوقف المؤقت
+        _timer?.cancel();
       }
     });
   }
