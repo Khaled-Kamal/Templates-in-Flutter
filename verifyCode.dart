@@ -132,7 +132,6 @@ class _VerifypageState extends State<Verifypage> {
                   GestureDetector(
                     onTap: () {
                       if (enableResend) {
-                        // هنا ممكن تنادي API لإعادة إرسال الكود
                         // وبعدها تعيد تشغيل المؤقت:
                         startTimer(seconds: 30);
                       }
