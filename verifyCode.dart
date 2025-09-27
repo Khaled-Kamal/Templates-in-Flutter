@@ -23,7 +23,6 @@ class _VerifypageState extends State<Verifypage> {
   }
 
   void startTimer({int seconds = 30}) {
-    // لو فيه مؤقت سابق نلغيه
     _timer?.cancel();
 
     setState(() {
