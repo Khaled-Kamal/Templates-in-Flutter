@@ -31,7 +31,7 @@ class _VerifypageState extends State<Verifypage> {
     });
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (!mounted) return; // تأكد إن الـ State موجود قبل عمل setState
+      if (!mounted) return;
       if (secondsRemaining > 0) {
         setState(() {
           secondsRemaining--;
