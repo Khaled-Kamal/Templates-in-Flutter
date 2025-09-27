@@ -80,7 +80,6 @@ class _VerifypageState extends State<Verifypage> {
 
             const SizedBox(height: 12),
 
-            // Description
             Text.rich(
               TextSpan(
                 style: GoogleFonts.poppins(
