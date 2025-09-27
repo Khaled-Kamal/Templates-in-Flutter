@@ -47,7 +47,7 @@ class _VerifypageState extends State<Verifypage> {
 
   @override
   void dispose() {
-    _timer?.cancel();         // أوقف المؤقت لو لسه شغال
+    _timer?.cancel();         
     otpController.dispose();  // فرّغ الكنترولر
     super.dispose();
   }
