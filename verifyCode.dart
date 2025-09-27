@@ -174,7 +174,6 @@ class _VerifypageState extends State<Verifypage> {
 
             const Spacer(),
 
-            // Done Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
