@@ -69,7 +69,6 @@ class _VerifypageState extends State<Verifypage> {
 
             const SizedBox(height: 16),
 
-            // Title
             Text(
               "Verify Code",
               style: GoogleFonts.fredoka(
