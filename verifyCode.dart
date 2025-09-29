@@ -21,7 +21,7 @@ class _VerifypageState extends State<Verifypage> {
     super.initState();
     startTimer();
   }
-// FFT
+// FF
   void startTimer({int seconds = 30}) {
     _timer?.cancel();
 
