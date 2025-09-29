@@ -123,7 +123,6 @@ class _VerifypageState extends State<Verifypage> {
 
             const SizedBox(height: 20),
 
-            // Resend text + timer
             Center(
               child: Column(
                 children: [
