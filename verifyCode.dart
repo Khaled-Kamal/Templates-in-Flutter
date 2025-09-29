@@ -61,7 +61,6 @@ class _VerifypageState extends State<Verifypage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Back Button
             IconButton(
               onPressed: () => Navigator.pop(context),
               icon: const Icon(Icons.arrow_back),
