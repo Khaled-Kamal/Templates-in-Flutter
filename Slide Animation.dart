@@ -6,7 +6,7 @@ class Splash extends StatefulWidget {
   @override
   State<Splash> createState() => _SplashState();
 }
-
+//
 class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
