@@ -16,8 +16,8 @@
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? Colors.pink.shade50   // لون وردي للـ selected
-                      : Colors.orange.shade50, // لون برتقالي للباقي
+                      ? Colors.pink.shade50   
+                      : Colors.orange.shade50, 
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: isSelected ? Colors.pink : Colors.transparent,
