@@ -32,7 +32,7 @@
                     Text(
                       categories[index].title,
                       style: TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w6000,
                         color: isSelected ? Colors.pink : Colors.black87,
                       ),
                     ),
