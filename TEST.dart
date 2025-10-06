@@ -1,45 +1,49 @@
-  SizedBox(
-        height: 60,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          separatorBuilder: (context, index) => const SizedBox(width: 10),
-          itemBuilder: (context, index) {
-            bool isSelected = selectedIndex == index;
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? Colors.pink.shade50   
-                      : Colors.orange.shade50, 
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: isSelected ? Colors.pink : Colors.transparent,
-                    width: 1.5,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(categories[index].image,
-                        color: isSelected ? Colors.pink : Colors.orange),
-                    const SizedBox(width: 8),
-                    Text(
-                      categories[index].title,
-                      style: TextStyle(
-                        // fontWeight: FontWeight.w600,
-                        // color: isSelected ? Colors.pink : Colors.black87,
+  Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SizedBox(
+              height: 60,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                separatorBuilder: (_, __) => SizedBox(width: 15),
+                itemBuilder: (context, index) {
+                  final item = categories[index];
+                  bool isSelected = selectIndex == index;
+
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectIndex = index;
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 250),
+                      width: 131,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: isSelected ? Color(0xffFCE6D9) : Color(0xffF9F1DA),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Image.asset(item.image, width: 30),
+                          SizedBox(width: 5),
+                          Text(
+                            item.title,
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      ),
+            ),
+          ),
