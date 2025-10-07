@@ -73,7 +73,6 @@ class _FoodCarouselState extends State<FoodCarousel> {
                     ),
                   ),
 
-                  // الصورة الطالعة فوق الكارد
                   Positioned(
                     top: -50,
                     left: 30,
