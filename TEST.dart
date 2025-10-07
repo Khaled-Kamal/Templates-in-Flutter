@@ -23,7 +23,7 @@ class _FoodCarouselState extends State<FoodCarousel> {
 
             return AnimatedScale(
               duration: const Duration(milliseconds: 300),
-              scale: isActive ? 1.0 : 0.85, // الكارد اللي في النص أكبر
+              scale: isActive ? 1.0 : 0.85, 
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
