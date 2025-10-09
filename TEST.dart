@@ -27,7 +27,6 @@ class _FoodCarouselState extends State<FoodCarousel> {
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  // الكارد
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
                     padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 16),
