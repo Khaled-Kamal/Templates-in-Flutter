@@ -3,7 +3,7 @@
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SizedBox(
               height: 60,
-
+//
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
