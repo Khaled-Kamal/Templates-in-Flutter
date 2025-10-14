@@ -1,137 +1,135 @@
- Card(
-  //
-            color : Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 190,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Color(0xffE3E3E3),
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Image.asset(
-                            'assets/modern_chair.png',
-                            width: 130,
-                          ),
-                        ),
+import 'package:flutter/material.dart';
+import 'package:furniture_shop/Models/BestSellerModel.dart';
+import 'package:furniture_shop/Models/ChairsModel.dart';
+import 'package:furniture_shop/Widgets/CustomCard.dart';
+import 'package:furniture_shop/Widgets/CustomCardRow.dart';
+import 'package:furniture_shop/Widgets/CustomCategories.dart';
+import 'package:furniture_shop/Widgets/CustomText.dart';
+import 'package:furniture_shop/Widgets/Search.dart';
+import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: 38,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'NEW',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
 
-                              Container(
-                                width: 38,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xffF4BB00),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      size: 16,
-                                      color: Color(0xffFFF0BA),
-                                    ),
-                                    Text(
-                                      '4.8',
-                                      style: TextStyle(color: Colors.orange[800]),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
 
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    'Modern Chair',
-                    style: GoogleFonts.inter(
-                      textStyle: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    'Armchair',
-                    style: GoogleFonts.inter(
-                      textStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xff828282),
-                      ),
-                    ),
-                  ),
-                ),
+List<String> categories = ['Chairs', 'Cupboard', 'Tables', 'Lamps'];
 
-                Row(
-                  mainAxisSize: MainAxisSize.min,
 
-                  children: [
-                    Gap(10),
-                    Text(
-                      '₹ 12,500',
-                      style: GoogleFonts.inter(
-                        textStyle: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                    Gap(80),
-                    Container(
-                      height: 44,
-                      width: 44,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: primaryFontsColor,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(14),
-                        child: Image.asset('assets/+.png', width: 20),
-                      ),
-                    ),
-                    Gap(10),
-                  ],
-                ),
+class _HomepageState extends State<Homepage> {
+  int selectIndex = -1;
 
-                Gap(15),
-              ],
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomText(
+              text: 'Discover The Best\nFurniture.',
+              size: 20,
+              fontWeight: FontWeight.w600,
             ),
-          ),
+            Container(
+              height: 55,
+              width: 55,
+              decoration: BoxDecoration(shape: BoxShape.circle),
+              child: Image.asset('assets/profile.png', fit: BoxFit.contain),
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 30),
+            Search(),
+            Gap(20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 17),
+              child: CustomText(
+                text: 'Categories',
+                size: 22,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Gap(20),
+            CustomCategories(),
+            Gap(30),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SizedBox(
+                height: 330,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: chairs.length,
+                  separatorBuilder: (_, __) => Gap(15),
+                  itemBuilder: (context, index) {
+                    final item = chairs[index];
+                    return CustomCard(
+                      image: item.image,
+                      rate: item.rate,
+                      name: item.title,
+                      sub: item.subtitle,
+                      price: item.rice,
+                    );
+                  },
+                ),
+              ),
+            ),
+
+            SizedBox(height: 30),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Best Seller',
+                style: GoogleFonts.inter(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xff416954),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SizedBox(
+                height: 130,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: bestSeller.length,
+                  separatorBuilder: (_, __) => Gap(8),
+                  itemBuilder: (context, index) {
+                    final item = bestSeller[index];
+                    return CustomCardRow(
+                      image: item.image,
+                      rate: item.rate,
+                      text: item.title,
+                      sub: item.subtitle,
+                      price: item.price,
+                    );
+                  },
+                ),
+              ),
+            ),
+
+
+          ],
+        ),
+      ),
+    );
+  }
+}
