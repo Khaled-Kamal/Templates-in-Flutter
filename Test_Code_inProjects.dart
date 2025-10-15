@@ -1,26 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shop/Models/BestSellerModel.dart';
-import 'package:furniture_shop/Models/ChairsModel.dart';
-import 'package:furniture_shop/Widgets/CustomCard.dart';
-import 'package:furniture_shop/Widgets/CustomCardRow.dart';
-import 'package:furniture_shop/Widgets/CustomCategories.dart';
-import 'package:furniture_shop/Widgets/CustomText.dart';
-import 'package:furniture_shop/Widgets/Search.dart';
-import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:furniture_shop/Pages/HomePage.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
-
-  @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-List<String> categories = ['Chairs', 'Cupboard', 'Tables', 'Lamps'];
-
-
-class _HomepageState extends State<Homepage> {
-  int selectIndex = -1;
+class ProductDetails extends StatelessWidget {
+  const ProductDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,107 +10,76 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CustomText(
-              text: 'Discover The Best\nFurniture.',
-              size: 20,
-              fontWeight: FontWeight.w600,
-            ),
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(shape: BoxShape.circle),
-              child: Image.asset('assets/profile.png', fit: BoxFit.contain),
-            ),
-          ],
+        backgroundColor: Color(0xffE3E3E3),
+
+        automaticallyImplyLeading: false,
+
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (c) => Homepage()),
+                  );
+                },
+                child: Image.asset('assets/arrow_back.png', width: 52),
+              ),
+              Image.asset('assets/heartAppBar.png', width: 52),
+            ],
+          ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Search(),
-            Gap(20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 17),
-              child: CustomText(
-                text: 'Categories',
-                size: 22,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            Gap(20),
-            CustomCategories(),
-            Gap(30),
+      body: Column(
+        children: [
+          Container(
+            width: 430,
+            height: 475,
+            decoration: BoxDecoration(color: Color(0xffE3E3E3)),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: SizedBox(
-                height: 330,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: chairs.length,
-                  separatorBuilder: (_, __) => Gap(15),
-                  itemBuilder: (context, index) {
-                    final item = chairs[index];
-                    return CustomCard(
-                      image: item.image,
-                      rate: item.rate,
-                      name: item.title,
-                      sub: item.subtitle,
-                      price: item.rice,
-                    );
-                  },
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 44,
+                  left: 65,
+                  child: Image.asset('assets/modern_chair.png', width: 280),
                 ),
-              ),
-            ),
 
-            SizedBox(height: 30),
+                Positioned(
+                  bottom: 85,
+                  left: 45,
+                  child: Image.asset('assets/circle.png', width: 320),
+                ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Best Seller',
-                style: GoogleFonts.inter(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xff416954),
+                Positioned(
+                  bottom: 74,
+                  left: 195,
+                  child: Container(
+                    width: 28,
+                    height: 26,
+                    decoration: BoxDecoration(
+                      color: Color(0xffFFFFFF),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Image.asset('assets/arrow-expand.png', width: 24),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(height: 20),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: SizedBox(
-                height: 130,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: bestSeller.length,
-                  separatorBuilder: (_, __) => Gap(8),
-                  itemBuilder: (context, index) {
-                    final item = bestSeller[index];
-                    return CustomCardRow(
-                      image: item.image,
-                      rate: item.rate,
-                      text: item.title,
-                      sub: item.subtitle,
-                      price: item.price,
-                    );
-                  },
+                Positioned(
+                  bottom: 48,
+                  left: 195,
+                  child: Text(
+                    '360°',
+                    style: TextStyle(fontSize: 15, color: Color(0xff416954)),
+                  ),
                 ),
-              ),
+              ],
             ),
-
-
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
