@@ -1,84 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shop/Pages/HomePage.dart';
+import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+class CustomCard extends StatelessWidget {
+  const CustomCard({
+    super.key,
+    required this.image,
+    required this.tittle,
+    required this.subtitle,
+    required this.price,
+  });
+
+  final String image;
+  final String tittle;
+  final String subtitle;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-
-      appBar: AppBar(
-        backgroundColor: Color(0xffE3E3E3),
-
-        automaticallyImplyLeading: false,
-
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (c) => Homepage()),
-                  );
-                },
-                child: Image.asset('assets/arrow_back.png', width: 52),
-              ),
-              Image.asset('assets/heartAppBar.png', width: 52),
-            ],
-          ),
-        ),
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
       ),
-      body: Column(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 430,
-            height: 475,
-            decoration: BoxDecoration(color: Color(0xffE3E3E3)),
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Image.asset(image, width: 150),
+          ),
 
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 44,
-                  left: 65,
-                  child: Image.asset('assets/modern_chair.png', width: 280),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Text(
+              tittle,
+              style: GoogleFonts.inter(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                  color: Colors.black,
                 ),
-
-                Positioned(
-                  bottom: 85,
-                  left: 45,
-                  child: Image.asset('assets/circle.png', width: 320),
-                ),
-
-                Positioned(
-                  bottom: 74,
-                  left: 195,
-                  child: Container(
-                    width: 28,
-                    height: 26,
-                    decoration: BoxDecoration(
-                      color: Color(0xffFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.asset('assets/arrow-expand.png', width: 24),
-                  ),
-                ),
-
-                Positioned(
-                  bottom: 48,
-                  left: 195,
-                  child: Text(
-                    '360°',
-                    style: TextStyle(fontSize: 15, color: Color(0xff416954)),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Text(
+              subtitle,
+              style: GoogleFonts.inter(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Color(0xff9095A6),
+                ),
+              ),
+            ),
+          ),
+
+          Gap(14),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Text(
+              '\$ $price',
+              style: GoogleFonts.inter(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15,
+                  color: Color(0xffF24E1E),
+                ),
+              ),
+            ),
+          ),
+          Gap(20),
         ],
       ),
     );
