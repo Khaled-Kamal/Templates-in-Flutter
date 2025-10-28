@@ -1,3 +1,72 @@
+//////////////////// HomePage /////////////////////////////////////////
+
+
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:watch_store/Models/watchesModel.dart';
+import 'package:watch_store/Widgets/CustomCard.dart';
+import 'package:watch_store/Widgets/Search.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+int selectedIndex = 0;
+
+List<String> categories = ['Smart watch', 'Casio', 'Tissot', 'Seiko'];
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [Image.asset('assets/filter.png', width: 30), Search()],
+          ),
+        ),
+      ),
+
+      body: Column(
+        children: [
+          Gap(18),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 23),
+            child: Text(
+              'Find your suitable\nwatch now.',
+              style: GoogleFonts.raleway(
+                textStyle: TextStyle(
+                  fontSize: 38,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+
+          Gap(17),
+
+
+        ],
+      ),
+    );
+  }
+}
+
+
+
+//////////////////// Custom Card /////////////////////////////////////////
+
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
